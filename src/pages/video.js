@@ -23,7 +23,7 @@ function Video() {
         ref={videoRef}
         onClick={handdleStart}
         loop
-        src="https://poqlymuephttfsljdabn.supabase.co/storage/v1/object/public/jornadadev/brecker2.mp4?t=2023-05-22T19%3A37%3A45.885Z"
+        src="https://cdn.coverr.co/videos/coverr-a-dog-drinks-water-from-a-portable-pet-water-bottle-8512/1080p.mp4"
       ></video>
     </div>
   );

@@ -1,4 +1,4 @@
-html{
+html {
   scroll-snap-type: y mandatory;
 }
 .App {
@@ -9,7 +9,7 @@ html{
 }
 
 .app__videos {
-  height: 100vh;
+  height: 90vh;
   max-height: 800px;
   width: 80%;
   max-width: 500px;
