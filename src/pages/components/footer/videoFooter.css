@@ -26,7 +26,6 @@
     transform: translateX(-100%);
   }
 }
-
 .videoFooter__record {
   animation: spinTheRecord 3s infinite linear;
   position: absolute;
