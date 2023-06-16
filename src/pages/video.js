@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import VideoFooter from "./components/footer/videoFooter";
 import "./video.css";
 
 function Video() {
@@ -23,10 +24,13 @@ function Video() {
         ref={videoRef}
         onClick={handdleStart}
         loop
-        src="https://cdn.coverr.co/videos/coverr-a-dog-drinks-water-from-a-portable-pet-water-bottle-8512/1080p.mp4"
+        src="https://video-eminem.vercel.app/download.mp4"
       ></video>
+      {/*Side Bar*/}
+     <VideoFooter />
     </div>
   );
 }
 
 export default Video;
+
