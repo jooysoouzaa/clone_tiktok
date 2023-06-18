@@ -1,13 +1,46 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import VideoFooter from "./components/footer/VideoFooter";
 import VideoSidebar from "./components/sidebar/VideoSidebar";
 import "./video.css";
 
-function Video({likes, messages, shares, name, description, music, url}) {
+function Video({ following, likes, messages, save, shares, name, description, music, url }) {
   const videoRef = useRef(null);
-  const  [play, setPlay]  = useState(false);
+  const [play, setPlay] = useState(false);
 
-  function handdleStart() {
+  useEffect(() => {
+    const videoElement = videoRef.current;
+  
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+  
+    const observer = new IntersectionObserver(handleIntersection, options);
+    if (videoElement) {
+      observer.observe(videoElement);
+    }
+  
+    return () => {
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
+  
+
+  function handleIntersection(entries) {
+    const entry = entries[0];
+    if (entry.isIntersecting) {
+      videoRef.current.play();
+      setPlay(true);
+    } else {
+      videoRef.current.pause();
+      setPlay(false);
+    }
+  }
+
+  function handleStart() {
     if (play) {
       videoRef.current.pause();
       setPlay(false);
@@ -19,27 +52,17 @@ function Video({likes, messages, shares, name, description, music, url}) {
 
   return (
     <div className="video">
-
       <video
         className="video__player"
         ref={videoRef}
-        onClick={handdleStart}
+        onClick={handleStart}
         loop
         src={url}
       ></video>
-      <VideoSidebar 
-      likes={likes}
-      messages={messages}
-      shares={shares}
-      />
-     <VideoFooter 
-     name={name}
-     description= {description}
-     music={music}
-     />
+      <VideoSidebar following= {following} likes={likes} messages={messages} save={save} shares={shares} />
+      <VideoFooter name={name} description={description} music={music} />
     </div>
   );
 }
 
 export default Video;
-

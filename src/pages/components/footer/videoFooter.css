@@ -8,6 +8,10 @@
 .videoFooter__text p {
   padding-bottom: 20px;
 }
+.videoFooter__text p {
+  font-size: 14px;
+}
+
 .videoFooter__music {
   display: flex;
 }

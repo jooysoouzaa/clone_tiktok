@@ -1,37 +1,40 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Video from "./pages/Video";
+import db from "./config/firebase";
+import { collection, getDocs } from "firebase/firestore/lite";
 
 function App() {
+  const [video, setVideos] = useState([]);
+
+  async function getVideos() {
+    const videosCollection = collection(db, "videos");
+    const videosSnapshot = await getDocs(videosCollection);
+    const VideosList = videosSnapshot.docs.map((doc) => doc.data());
+    setVideos(VideosList);
+  }
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   return (
     <div className="App">
       <div className="app__videos">
-      <Video 
-      likes={312}
-      messages={548}
-      shares={121}
-      name="Eminem"
-      description= "Live from Detroit"
-      music="Eminem - Sing For The Moment"
-      url="https://video-eminem.vercel.app/download.mp4"
-      />
-      <Video 
-       likes={212}
-       messages={125}
-       shares={121}
-       name="Snoop Dogg"
-       description= "Eminem and Snoop Dogg"
-       music="Eminem & Snoop Dogg - From The D 2 The LBC"
-       url="https://video-eminem.vercel.app/download_01.mp4"
-      />
-      <Video 
-       likes={321}
-       messages={352}
-       shares={121}
-       name="NFL"
-       description= "Dr. Dre, Snoop Dogg, Eminem, Mary J. Blige, Kendrick Lamar & 50 Cent FULL Pepsi SB LVI Halftime Show"
-       music="Dr. Dre - Still D.R.E. ft. Snoop Dogg"
-       url="https://video-eminem.vercel.app/download_02.mp4"
-      />
+        {video.map((item) => {
+          return (
+            <Video
+              likes={item.likes}
+              messages={item.messages}
+              save={item.save}
+              shares={item.shares}
+              name={item.name}
+              description={item.description}
+              music={item.music}
+              url={item.url}
+            />
+          );
+        })}
       </div>
     </div>
   );

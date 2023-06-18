@@ -5,7 +5,16 @@
     color: #ffffff;
 }
 .videoSidebar__options{
-    padding: 20px;
+    font-size: 12px;
+    padding: 8px 20px;
     text-align: center;
 }
 
+.liked {
+    color: #ad0000;
+  }
+
+  .saved{
+    color: #e7bd00;
+  }
+  

@@ -3,30 +3,58 @@ import "./videoSidebar.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatIcon from "@mui/icons-material/Chat";
-import ShareIcon from "@mui/icons-material/Share";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-function VideoSidebar({likes,messages,shares}) {
+function VideoSidebar({ following, likes, messages, save, shares }) {
   const [liked, setLiked] = useState(false);
-  function handdleLike() {
+  const [followed, setFollowed] = useState(false);
+  const[saved, setSaved] = useState(false);
+
+  const handdleLike = () => {
     setLiked(!liked);
+  };
+
+  const handdleFollow = () => {
+    setFollowed(!followed);
+  };
+
+  const handdleSaved = () =>{
+    setSaved(!saved);
   }
 
   return (
     <div className="videoSidebar">
+       <div className="videoSidebar__options" onClick={handdleFollow}>
+        {followed ? <HowToRegIcon /> : <PersonAddIcon />}
+      </div>
+
       <div className="videoSidebar__options" onClick={handdleLike}>
         {liked ? (
-          <FavoriteIcon fontSize="large" />
+          <FavoriteIcon className="liked" />
         ) : (
-          <FavoriteBorderIcon fontSize="large" />
+          <FavoriteBorderIcon />
         )}
         <p>{liked ? likes + 1 : likes}</p>
       </div>
+
       <div className="videoSidebar__options">
-        <ChatIcon fontSize="large" />
-        <p>{ messages }</p>
+        <ChatIcon />
+        <p>{messages}</p>
       </div>
+      <div className="videoSidebar__options"  onClick={handdleSaved}>
+      {saved ? (
+          <BookmarkIcon  className="saved"/>
+        ) : (
+          <BookmarkIcon  />
+        )}
+        <p>{saved? save + 1 : save}</p>
+      </div>
+
       <div className="videoSidebar__options">
-        <ShareIcon fontSize="large" />
+        <WhatsAppIcon />
         <p>{shares}</p>
       </div>
     </div>
