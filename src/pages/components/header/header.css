@@ -1,0 +1,43 @@
+.header__container {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  gap: 60px;
+  color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  position: absolute;
+  margin: 0px 28px;
+  top: 4%;
+}
+
+.header__item_text {
+  display: flex;
+  gap: 20px;
+}
+
+.header__text {
+  font-weight: bold;
+}
+.highlighted-text {
+  position: relative;
+}
+
+.header__highlightedText::after {
+  content: "";
+  position: absolute;
+  right: 24%;
+  border-radius: 10px;
+  bottom: -3px;
+  width: 10%;
+  height: 3px;
+  background-color: white;
+}
+
+.Gray {
+  opacity: 0.5;
+}

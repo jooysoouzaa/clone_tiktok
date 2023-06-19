@@ -1,20 +1,28 @@
-.videoSidebar{
-    position: absolute;
-    top: 25%;
-    right: 10px;
-    color: #ffffff;
+.videoSidebar {
+  position: absolute;
+  top: 20%;
+  right: 10px;
+  color: #ffffff;
 }
-.videoSidebar__options{
-    font-size: 12px;
-    padding: 8px 20px;
-    text-align: center;
+.videoSidebar__options {
+  font-size: 12px;
+  padding: 8px 20px;
+  text-align: center;
 }
-
 .liked {
-    color: #ad0000;
-  }
+  color: #ad0000;
+}
+.saved {
+  color: #e7bd00;
+}
+.shared {
+  background: #1bd741;
+  padding: 4px;
+  border-radius: 50%;
+}
 
-  .saved{
-    color: #e7bd00;
+@media only screen and (max-width: 440px) {
+  .videoSidebar {
+    top: 22%;
   }
-  
+}

@@ -9,7 +9,7 @@
   padding-bottom: 20px;
 }
 .videoFooter__text p {
-  font-size: 14px;
+  padding-right: 45px;
 }
 
 .videoFooter__music {
@@ -44,5 +44,14 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .videoFooter__text p {
+    font-size: 14px;
+  }
+  .videoFooterMusic__text {
+    width: 78%;
   }
 }

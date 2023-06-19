@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./videoSidebar.css";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatIcon from "@mui/icons-material/Chat";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -28,33 +27,33 @@ function VideoSidebar({ following, likes, messages, save, shares }) {
   return (
     <div className="videoSidebar">
        <div className="videoSidebar__options" onClick={handdleFollow}>
-        {followed ? <HowToRegIcon /> : <PersonAddIcon />}
+        {followed ? <HowToRegIcon fontSize="large"/> : <PersonAddIcon fontSize="large" />}
       </div>
 
       <div className="videoSidebar__options" onClick={handdleLike}>
         {liked ? (
-          <FavoriteIcon className="liked" />
+          <FavoriteIcon className="liked" fontSize="large"/>
         ) : (
-          <FavoriteBorderIcon />
+          <FavoriteIcon fontSize="large"/>
         )}
         <p>{liked ? likes + 1 : likes}</p>
       </div>
 
       <div className="videoSidebar__options">
-        <ChatIcon />
+        <ChatIcon fontSize="large"/>
         <p>{messages}</p>
       </div>
       <div className="videoSidebar__options"  onClick={handdleSaved}>
       {saved ? (
-          <BookmarkIcon  className="saved"/>
+          <BookmarkIcon  className="saved" fontSize="large"/>
         ) : (
-          <BookmarkIcon  />
+          <BookmarkIcon  fontSize="large"/>
         )}
         <p>{saved? save + 1 : save}</p>
       </div>
 
       <div className="videoSidebar__options">
-        <WhatsAppIcon />
+        <WhatsAppIcon className="shared"  fontSize="large" />
         <p>{shares}</p>
       </div>
     </div>
