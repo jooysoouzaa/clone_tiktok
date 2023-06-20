@@ -47,11 +47,18 @@
   }
 }
 
-@media only screen and (max-width: 440px) {
+
+@media only screen and (max-width: 600px) {
   .videoFooter__text p {
     font-size: 14px;
   }
   .videoFooterMusic__text {
     width: 78%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .videoFooter__text h3, .videoFooter__text p {
+    padding-bottom: 10px;
   }
 }

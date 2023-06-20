@@ -27,33 +27,33 @@ function VideoSidebar({ following, likes, messages, save, shares }) {
   return (
     <div className="videoSidebar">
        <div className="videoSidebar__options" onClick={handdleFollow}>
-        {followed ? <HowToRegIcon fontSize="large"/> : <PersonAddIcon fontSize="large" />}
+        {followed ? <HowToRegIcon /> : <PersonAddIcon  />}
       </div>
 
       <div className="videoSidebar__options" onClick={handdleLike}>
         {liked ? (
-          <FavoriteIcon className="liked" fontSize="large"/>
+          <FavoriteIcon className="liked" />
         ) : (
-          <FavoriteIcon fontSize="large"/>
+          <FavoriteIcon />
         )}
         <p>{liked ? likes + 1 : likes}</p>
       </div>
 
       <div className="videoSidebar__options">
-        <ChatIcon fontSize="large"/>
+        <ChatIcon />
         <p>{messages}</p>
       </div>
       <div className="videoSidebar__options"  onClick={handdleSaved}>
       {saved ? (
-          <BookmarkIcon  className="saved" fontSize="large"/>
+          <BookmarkIcon  className="saved" />
         ) : (
-          <BookmarkIcon  fontSize="large"/>
+          <BookmarkIcon  />
         )}
         <p>{saved? save + 1 : save}</p>
       </div>
 
       <div className="videoSidebar__options">
-        <WhatsAppIcon className="shared"  fontSize="large" />
+        <WhatsAppIcon className="shared" />
         <p>{shares}</p>
       </div>
     </div>

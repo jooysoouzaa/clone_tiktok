@@ -21,7 +21,7 @@
   border-radius: 50%;
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 480px) {
   .videoSidebar {
     top: 22%;
   }
