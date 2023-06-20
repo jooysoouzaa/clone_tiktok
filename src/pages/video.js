@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import VideoFooter from "./components/footer/VideoFooter";
 import VideoSidebar from "./components/sidebar/VideoSidebar";
-// import Header from "./components/header/Header";
+import Header from "./components/header/Header";
 import "./video.css";
 
 function Video({ following, likes, messages, save, shares, name, description, music, url }) {
@@ -60,7 +60,7 @@ function Video({ following, likes, messages, save, shares, name, description, mu
         loop
         src={url}
       ></video>
-      {/* <Header />  */}
+      <Header /> 
       <VideoSidebar following= {following} likes={likes} messages={messages} save={save} shares={shares} />
       <VideoFooter name={name} description={description} music={music} />
     </div>
